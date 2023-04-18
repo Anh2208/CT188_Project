@@ -103,6 +103,8 @@ html{
 }
 
 .header .search-form{
+    display: none;
+
     position: absolute;
     top: 110%;
     right: 2rem;
@@ -111,12 +113,12 @@ html{
     background: #fff;
     border-radius: .5rem;
     overflow: hidden;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     box-shadow: var(--box-shadow);
 }
 .header .search-form.active{
-    display: none;
+    display: flex;
     right: 2rem;
     transition: .4s linear;
 }
@@ -149,6 +151,7 @@ html{
 
 .header .shopping-cart{
     position: absolute;
+    display: none;
     top: 110%;
     right: 2rem;
     padding: 1rem;
@@ -161,7 +164,7 @@ html{
 .header .shopping-cart.active{
     right: 2rem;
     transition: .4s linear ;
-    display: none;
+    display: block;
 }
 
 .header .shopping-cart .box{
