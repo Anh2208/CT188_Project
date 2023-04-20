@@ -55,9 +55,16 @@
 
         Validator({
             form: '#Register',
+            errorSelector: '.form-message',
             rules: [
-                Validator.isRequired('#fullname'),
+                Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'),
+                Validator.isRequired('#email'),
                 Validator.isEmail('#email'),
+                Validator.minLength('#password', 8),
+                Validator.isRequired('#password_confirmation'),
+                Validator.isConfirmed('#password_confirmation', function () {
+                    return document.querySelector('#Register #password').value;
+                }, 'Mật khẩu nhập lại không chính xác'),
             ]
         })
     </script>

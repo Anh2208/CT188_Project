@@ -21,6 +21,7 @@ function updateCart() {
         var price = parseFloat(price_item.innerText);
         var quantity = quantity_item.value;
         total += (price * quantity);
+        i++;
     }
     document.getElementsByClassName("cart-total-price")[0].innerText = total + 'VNĐ'
 }
