@@ -10,7 +10,7 @@
     --outline-hover:.2rem solid var(--black)
 }
 
-*{
+body{
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
@@ -45,7 +45,8 @@ html{
 }
 
 .header{
-    position: fixed;
+    /* position: fixed; */
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -53,9 +54,9 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 9%;
+    padding: 0.5rem 9%;
     background: #fff;
-    box-shadow: var(--box-shadow);
+    /* background: red; */
 }
 
 .header .logo{
@@ -74,6 +75,7 @@ html{
     font-size: 1.5rem;
     margin: 0 1rem;
     color: var(--black);
+    text-decoration: none !important    ;
 }
 
 .header .navbar a:hover{
@@ -98,13 +100,17 @@ html{
     color: #fff;
 }
 
+.dropdown-toggle-no-caret::after {
+    display: none !important;
+  }
+  
+
 #menu-btn{
     display: none;
 }
 
 .header .search-form{
     display: none;
-
     position: absolute;
     top: 110%;
     right: 2rem;
@@ -216,4 +222,49 @@ html{
     text-align: center;
     margin: 1rem;
 
+}
+
+@media (max-width: 991px){
+    html{
+        font-size: 75%;
+    }
+}
+
+
+@media (max-width: 768px){
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        display: none;
+        top: 110%;
+        right: -110%;
+        right: 2rem;
+        width: 30rem;
+        box-shadow: var(--box-shadow);
+        border-radius: .5rem;
+        background: #fff;
+    }
+
+    .header .navbar.active{
+        right: 2rem;
+        transition: .4s linear;
+        display: block;
+        width: 200px
+    }
+
+    .header .navbar a{  
+        font-size: 2rem;
+        margin: 2rem 2.5rem;
+        display: block;
+    }
+}
+
+
+@media (max-width: 450px){
+    html{
+        font-size: 75%;
+    }
 }
