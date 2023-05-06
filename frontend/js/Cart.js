@@ -42,7 +42,7 @@ for (var i = 0; i < quantity_input.length; i++) {
         if (isNaN(input.value) || input.value <= 0) {
             input.value = 1;
         }
-        updatecart()
+        updatecart();
     })
 }
 
