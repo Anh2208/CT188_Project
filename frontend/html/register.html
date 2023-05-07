@@ -16,7 +16,7 @@
 <body>
     <div class="main">
 
-        <form action="" method="POST" class="form" id="Register">
+        <form action="" method="POST" class="form" id="Register" onsubmit="signup()">
             <h3 class="heading">Thành viên đăng ký</h3>
 
             <div class="spacer"></div>
@@ -46,8 +46,13 @@
                 <span class="form-message"></span>
             </div>
 
-            <button class="form-submit">Đăng ký</button>
+            <button class="form-submit btn-success w-100">Đăng ký</button>
+            <div class="">
+                <label for="login" class="">Bạn đã có tài khoản ?<a href="Login.html">Nhấn vào đây!</a></label>
+            </div>
         </form>
+
+
 
     </div>
     <script src="../js/register.js"></script>
@@ -66,7 +71,7 @@
                 }, 'Mật khẩu nhập lại không chính xác')
             ],
             onSubmit: function (data) {
-                // Call API
+                signup();
                 console.log(data);
             }
         });

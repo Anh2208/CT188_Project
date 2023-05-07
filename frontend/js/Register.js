@@ -174,3 +174,16 @@ Validator.isConfirmed = function (selector, getConfirmValue, message) {
         }
     }
 }
+
+function signup(e) {
+    event.preventDefault();
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    var user = {
+        email: email,
+        password: password,
+    }
+    var json = JSON.stringify(user);
+    localStorage.setItem(email, JSON);
+    alert("Đăng ký thành công");
+}
