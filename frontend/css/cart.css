@@ -127,3 +127,6 @@ header .shopping span{
 .listCard .count{
     margin: 0 10px;
 }
+.head{
+    font-weight: bold;
+}

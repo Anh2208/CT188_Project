@@ -17,40 +17,47 @@ let products = [
     {
         id: 1,
         name: 'PRODUCT NAME 1',
-        image: '1.PNG',
-        price: 120000
+        image: '../../assets/images/img01.jpg',
+        price: 120000,
+        type: "collapse11",
     },
     {
         id: 2,
         name: 'PRODUCT NAME 2',
-        image: '2.PNG',
-        price: 120000
+        image: '../../assets/images/img01.jpg',
+        price: 120000,
+        type: "collapse31",
     },
     {
         id: 3,
         name: 'PRODUCT NAME 3',
-        image: '3.PNG',
-        price: 220000
+        image: '../../assets/images/img01.jpg',
+        price: 220000,
+        type: "collapse23",
     },
     {
         id: 4,
         name: 'PRODUCT NAME 4',
-        image: '4.PNG',
-        price: 123000
+        image: '../../assets/images/img01.jpg',
+        price: 123000,
+        type: "collapse31",
     },
     {
         id: 5,
         name: 'PRODUCT NAME 5',
-        image: '5.PNG',
-        price: 320000
+        image: '../../assets/images/img01.jpg',
+        price: 320000,
+        type: "collapse42",
     },
     {
         id: 6,
         name: 'PRODUCT NAME 6',
-        image: '6.PNG',
-        price: 120000
+        image: '../../assets/images/img01.jpg',
+        price: 120000,
+        type: "collapse41",
     }
 ];
+
 let listCards  = [];
 function initApp(){
     products.forEach((value, key) =>{
@@ -106,3 +113,47 @@ function changeQuantity(key, quantity){
     }
     reloadCard();
 }
+
+//list by 
+$(document).ready(function() {
+    $('.list-group a').click(function() {
+      var dataType = $(this).data('type');  
+      // Filter products by type
+      let filteredProducts = products.filter((product) => {
+        return product.type === dataType;
+      });
+  
+      // Clear previous list of products
+      list.innerHTML = '';
+  
+      // Render new list of products
+      filteredProducts.forEach((value, key) => {
+        let newDiv = document.createElement('div');
+        newDiv.classList.add('item');
+        newDiv.innerHTML = `
+          <img src="image/${value.image}">
+          <div class="title">${value.name}</div>
+          <div class="price">${value.price.toLocaleString()}</div>
+          <button onclick="addToCard(${key})">Add To Card</button>`;
+        list.appendChild(newDiv);
+      });
+    });
+  });
+
+  //
+  var currentCollapse = null;
+$(document).ready(function() {
+  $(".head").click(function() {
+    var collapse = $(this).next(".collapse");
+    if (collapse.is(":visible")) {
+      collapse.slideUp(500);
+      currentCollapse = null;
+    } else {
+      collapse.slideDown(500);
+      if (currentCollapse != null) {
+        currentCollapse.slideUp(500);
+      }
+      currentCollapse = collapse;
+    }
+  });
+});
