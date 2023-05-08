@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/register.css">
@@ -16,7 +16,7 @@
 <body>
     <div class="main">
 
-        <form action="" method="POST" class="form" id="Register" onsubmit="signup()">
+        <form action="" method="POST" class="form" id="Login" onsubmit="login()">
             <h3 class="heading">Thành viên đăng ký</h3>
 
             <div class="spacer"></div>
@@ -33,12 +33,28 @@
             </div>
 
             <button class="form-submit btn-success w-100">Đăng Nhập</button>
+            <div>
+                <label for="signup">Bạn chưa có tài khoản ?<a href="register.html">Nhấn vào đây!</a></label>
+            </div>
         </form>
 
 
 
     </div>
     <script src="../js/login.js"></script>
+    <script src="../js/register.js"></script>
+    <script>
+
+        Validator({
+            form: '#Login',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('#username', 'Vui lòng nhập tên người dùng'),
+            ],
+        });
+
+    </script>
 </body>
 
 </html>
