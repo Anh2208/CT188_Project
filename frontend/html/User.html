@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="../css/user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="../js/user.js"></script> -->
 
 </head>
 
@@ -23,7 +22,7 @@
     <header class="header">
         <a style="text-decoration: none;" href="#" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
         <nav class="navbar">
-            <a href="#home">Trang Chủ</a>
+            <a href="./Header.html">Trang Chủ</a>
             <a href="#products">Sản Phẩm</a>
             <a href="#blog">Blog</a>
             <a href="#about">Thông Tin</a>
@@ -38,7 +37,7 @@
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Đăng Nhập</a></li>
+                <li><a class="dropdown-item" href="./Login.html">Đăng Nhập</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
@@ -89,9 +88,10 @@
         </div>
     </header>
 
-
+    
     <main>
-        <a href="../html/Header.html" class="backhistory"><i class="fas fa fa-chevron-left"></i> Quay về lịch sử mua hàng</a>
+        <a href="../html/Header.html" class="backhistory"><i class="fas fa fa-chevron-left"></i> Quay về lịch sử mua
+            hàng</a>
         <div class="main">
             <form class="input">
                 <label><i class="fas fa-user"></i><b>Thông tin cá nhân</b></label>
@@ -152,19 +152,22 @@
                     </div>
                     <div class="mb-3 row">
                         <div class="col-12">
-                            <input type="password" class="form-control" id="newPassword" placeholder="Nhập mật khẩu mới">
+                            <input type="password" class="form-control" id="newPassword"
+                                placeholder="Nhập mật khẩu mới">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <div class="col-12">
-                            <input type="password" class="form-control" id="checknewPassword" placeholder="Nhập lại mật khẩu mới">
+                            <input type="password" class="form-control" id="checknewPassword"
+                                placeholder="Nhập lại mật khẩu mới">
                         </div>
                     </div>
                 </div>
-                <button class="update-btn btn btn-success" onclick="checkPassword()" type="button">CẬP NHẬT MẬT KHẨU</button>
+                <button class="update-btn btn btn-success" onclick="checkPassword()" type="button">CẬP NHẬT MẬT
+                    KHẨU</button>
             </form>
         </div>
-        
+
     </main>
 </body>
 <script src="../js/user.js"></script>

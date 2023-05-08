@@ -39,3 +39,15 @@ window.onscroll = () => {
     shoppingCart.classList.remove('active');
     navbar.classList.remove('active');
 }
+
+
+//show and hide loginButton
+const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+if (loggedInUser) {
+  // Người dùng đã đăng nhập, ẩn nút đăng nhập và hiển thị các tính năng cho người dùng đã đăng nhập
+  document.getElementById('loginButton').style.display = 'none';
+  // Hiển thị các tính năng cho người dùng đã đăng nhập
+} else {
+  // Người dùng chưa đăng nhập, hiển thị nút đăng nhập
+  document.getElementById('loginButton').style.display = 'block';
+}
