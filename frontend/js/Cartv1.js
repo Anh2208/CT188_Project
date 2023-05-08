@@ -57,7 +57,7 @@ let products = [
         type: "collapse41",
     }
 ];
-
+products.splice(2, 1);
 let listCards  = [];
 function initApp(){
     products.forEach((value, key) =>{
