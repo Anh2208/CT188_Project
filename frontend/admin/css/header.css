@@ -17,22 +17,6 @@
 .nav-head img {
   width: 50%;
 }
-/* @media (max-width: 767px) {
-  .nav-head a span {
-    display: none;
-  }
-} */
-/* @media (max-width: 767px) {
-  .nav-head a span {
-    display: none;
-  }
-} */
-
-/* .home-hidden img,
-.home-hidden span {
-  display: none;
-} */
-
 .col-1 {
   flex: 0 0 8.333333%;
   max-width: 8.333333%;
@@ -48,3 +32,9 @@
     display: none;
   }
 }
+.hidden {
+  display: none;
+}
+/* .nav-head a img {
+  display: none;
+} */

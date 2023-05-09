@@ -1,14 +1,30 @@
-const homeLink = document.getElementById('home-link');
-const navHead = document.querySelector('.nav-head');
-const mainContent = document.querySelector('main');
-const col3 = document.querySelector('.col-3');
-const col9 = document.querySelector('.col-9');
+// const homeLink = document.querySelector("#home-link");
+// const navTexts = document.querySelectorAll(".nav-text");
+// const navImgs = document.querySelectorAll(".nav-img");
 
-homeLink.addEventListener('click', function() {
-  navHead.classList.toggle('home-hidden');
-  mainContent.classList.toggle('home-hidden');
-  col3.classList.toggle('col-3');
-  col3.classList.toggle('col-1');
-  col9.classList.toggle('col-9');
-  col9.classList.toggle('col-11');
+// homeLink.addEventListener("click", () => {
+//   navTexts.forEach((navText) => {
+//     navText.classList.toggle("hidden");
+//   });
+//   navImgs.forEach((navImg) => {
+//     navImg.classList.toggle("hidden");
+//   });
+// });
+
+const homeLink = document.querySelector("#home-link");
+const navTexts = document.querySelectorAll(".nav-text");
+const navImgs = document.querySelectorAll(".nav-img");
+const col = document.querySelector(".col-2");
+
+homeLink.addEventListener("click", () => {
+  navTexts.forEach((navText) => {
+    navText.classList.toggle("hidden");
+  });
+  navImgs.forEach((navImg) => {
+    navImg.classList.toggle("hidden");
+  });
+  col.classList.toggle("col-2");
+  col.classList.toggle("col-1");
+  col.nextElementSibling.classList.toggle("col-10");
+  col.nextElementSibling.classList.toggle("col-11");
 });
