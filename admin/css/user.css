@@ -1,7 +1,28 @@
 .content-user{
     margin: 0 20px;
-    
+    background-color: rgb(205, 200, 200);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
 }
 .card-info{
     border: 1px solid red;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center; 
+}
+.img-card{
+    width: 100px;
+    background-color: palevioletred;
+    padding: 10px;
+    border-radius: 50%;
+}
+.card-body{
+    background-color: pink;
+    padding: 20px;
 }

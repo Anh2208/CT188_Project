@@ -115,7 +115,7 @@ header .shopping span{
 .listCard li div{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 .listCard li img{
     width: 90%;

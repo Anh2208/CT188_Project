@@ -33,10 +33,14 @@ const userContainer = document.getElementById("user-container");
 
 function createUserCard(user) {
   const card = document.createElement("div");
-  card.className = "col-4 card-info";
+  card.className = "col-3 card-info";
 
   const cardBody = document.createElement("div");
   cardBody.className = "card-body";
+
+  const img = document.createElement("img");
+  img.className = "img-card"
+  img.src = "https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
 
   const name = document.createElement("h5");
   name.className = "card-title title";
@@ -54,6 +58,7 @@ function createUserCard(user) {
   role.className = "card-text";
   role.textContent = `Role: ${user.role}`;
 
+  cardBody.appendChild(img);
   cardBody.appendChild(name);
   cardBody.appendChild(email);
   cardBody.appendChild(username);
