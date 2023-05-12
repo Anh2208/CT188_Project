@@ -1,28 +1,42 @@
-function add() {
-    var data = []
+var data = [];
+function checkID(id) {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].id == id) {
+            return true;
+        }
+    }
+}
 
-    var item_id = document.getElementById("id").value
-    var item_name = document.getElementById("nameproduct").value
-    var item_type = document.getElementById("type").value
-    var item_price = document.getElementById("price").value
-    var item_quantity = document.getElementById("quantity").value
-    var item_script = document.getElementById("script").value
-    var item_img = document.getElementById("img").value
+
+function add() {
+
+    var id = document.getElementById("id").value
+    var name = document.getElementById("name").value
+    var type = document.getElementById("type").value
+    var price = document.getElementById("price").value
+    var quantity = document.getElementById("quantity").value
+    var script = document.getElementById("script").value
+    var img = document.getElementById("img").value
 
     var item = {
-        Id: item_id,
-        Name: item_name,
-        Type: item_type,
-        Price: item_price,
-        Quantity: item_quantity,
-        Script: item_script,
-        Img: item_img
+        id: id,
+        name: name,
+        type: type,
+        price: price,
+        quantity: quantity,
+        script: script,
+        img: img
     }
-    data.push(item)
-    
+    if (!checkID(id)) {
+        data.push(item);
+        render()
+        clear()
+    } else {
+        alert("Sản phẩm đã tồn tại! Vui lòng nhập sản phẩm khác")
+    }
+    var json = JSON.stringify(item)
+    localStorage.setItem(id, json)
     console.log(window.localStorage)
-
-    render()
 
     function render() {
         table = `<tr>
@@ -37,18 +51,25 @@ function add() {
 
         for (let i = 0; i < data.length; i++) {
             table += `<tr>
-            <th>${data[i].Id}</th>
-            <th>${data[i].Name}</th>
-            <th>${data[i].Type}</th>
-            <th>${data[i].Price}</th>
-            <th>${data[i].Quantity}</th>
-            <th>${data[i].Script}</th>
-            <th>${data[i].Img}</th>
-
+                <th>${data[i].id}</th>
+                <th>${data[i].name}</th>
+                <th>${data[i].type}</th>
+                <th>${data[i].price}</th>
+                <th>${data[i].quantity}</th>
+                <th>${data[i].script}</th>
+                <th>${data[i].img}</th>
             </tr>`
         }
         document.getElementById("render").innerHTML = table
-        console.log()
+    }
+    function clear() {
+        document.getElementById("id").value = ""
+        document.getElementById("name").value = ""
+        document.getElementById("type").value = ""
+        document.getElementById("price").value = ""
+        document.getElementById("quantity").value = ""
+        document.getElementById("script").value = ""
+        document.getElementById("img").value = ""
     }
 }
 
@@ -60,5 +81,31 @@ function chooseImg(fileInput) {
             $('#image').attr('src', e.target.result);
         }
         reader.readAsDataURL(fileInput.files[0]);
+    }
+}
+
+// lấy phần Modal
+var modal = document.getElementById('myModal');
+
+// Lấy phần button mở Modal
+var btn = document.getElementById("myBtn");
+
+// Lấy phần span đóng Modal
+var span = document.getElementsByClassName("close")[0];
+
+// Khi button được click thi mở Modal
+// btn.onclick = function () {
+//     modal.style.display = "block";
+// }
+
+// Khi span được click thì đóng Modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// Khi click ngoài Modal thì đóng Modal
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
 }
