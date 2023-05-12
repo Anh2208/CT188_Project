@@ -29,6 +29,8 @@ let users = [
   },
 ];
 
+
+//
 const userContainer = document.getElementById("user-container");
 
 function createUserCard(user) {
@@ -71,7 +73,7 @@ users.forEach((user) => {
   createUserCard(user);
 });
 
-const userRoleSelect = document.getElementById("status-user");
+const userRoleSelect = document.getElementById("status");
 
 userRoleSelect.addEventListener("change", () => {
   const selectedRole = userRoleSelect.value;
@@ -88,5 +90,5 @@ function displayUsers(users) {
   users.forEach(user => {
     createUserCard(user);
   });
-}//end
+}
 
