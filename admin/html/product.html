@@ -12,8 +12,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/user.css">
-    <link rel="stylesheet" href="../css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 </head>
@@ -24,7 +22,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 content-nav" style="background-color: aqua;">
+            <div class="col-sm-2" style="background-color: aqua;">
                 <nav class="nav flex-column nav-head">
                     <a class="nav-link active" aria-current="page" id="home-link">
                         <img class="nav-img" src="../assets/logo.png" alt="img"><i class="fas fa-home-user"></i>
@@ -42,7 +40,7 @@
                 </nav>
 
             </div>
-            <div class="col-sm-10" style="background-color: bisque; padding: 0;">
+            <div class="col-sm-10" style="background-color: antiquewhite;">
                 <div style="background-color: yellowgree;" class="head-body">
                     <span><i class="fas fa-moon icon"></i></span>
                     <span><i class="fas fa-bell icon"></i></span>
@@ -55,51 +53,18 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="#">Thông tin</a></li>
                             <li><a class="dropdown-item" href="#">Thoát</a></li>
-                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>F
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
                         </ul>
                     </span>
                 </div>
-                <div class="content">
-                    <h1>User</h1>
-                    <div class="row">
-                        <div class="col-8 lefy-head">
-                            <span class="search-span"><input type="text" class="search-input"
-                                    placeholder="Enter your search"> <i class="fas fa-search btn-search"></i></span>
-                        </div>
-                        <div class="dropdown col-2 ">
-                            <button class="btn dropdown-toggle right-head dr" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Trạng thái
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Đã thanh toán</a></li>
-                                <li><a class="dropdown-item" href="#">Chưa thanh toán</a></li>
-                                <li><a class="dropdown-item" href="#">Đã giao</a></li>
-                                <li><a class="dropdown-item" href="#">Đang giao</a></li>
-                            </ul>
-                        </div>
-                        <div class="dropdown col-2">
-                            <button class="btn dropdown-toggle right-head dr" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Hiển thị 10
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Hiển thị 20</a></li>
-                                <li><a class="dropdown-item" href="#">Hiển thị 30</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <main>
-                        <div class="row list" id="user-container"></div>
-                    </main>
+                <main>
 
-                </div>
+                </main>
             </div>
         </div>
     </div>
 </body>
 <script src="../js/header.js"></script>
-<script src="../js/user.js"></script>
 <footer>
 
 </footer>
