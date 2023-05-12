@@ -49,5 +49,5 @@ if (loggedInUser) {
   // Hiển thị các tính năng cho người dùng đã đăng nhập
 } else {
   // Người dùng chưa đăng nhập, hiển thị nút đăng nhập
-  document.getElementById('loginButton').style.display = 'block';
+  // document.getElementById('loginButton').style.display = 'block';
 }
