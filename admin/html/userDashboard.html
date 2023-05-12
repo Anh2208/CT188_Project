@@ -53,9 +53,9 @@
                             <i class="fas fa-user"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Thông tin</a></li>
-                            <li><a class="dropdown-item" href="#">Thoát</a></li>
-                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>F
+                            <li><a class="dropdown-item">Thông tin</a></li>
+                            <li><a class="dropdown-item">Thoát</a></li>
+                            <li><a class="dropdown-item">Cài đặt</a></li>F
                         </ul>
                     </span>
                 </div>
@@ -67,27 +67,23 @@
                                     placeholder="Enter your search"> <i class="fas fa-search btn-search"></i></span>
                         </div>
                         <div class="dropdown col-2 ">
-                            <button class="btn dropdown-toggle right-head dr" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Trạng thái
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Đã thanh toán</a></li>
-                                <li><a class="dropdown-item" href="#">Chưa thanh toán</a></li>
-                                <li><a class="dropdown-item" href="#">Đã giao</a></li>
-                                <li><a class="dropdown-item" href="#">Đang giao</a></li>
-                            </ul>
+                            <div class="dropdown col-2">
+                                <select id="status-user" class="dr right-head" name="status">
+                                    <option value="all">Tất cả</option>
+                                    <option value="admin">admin</option>
+                                    <option value="user">user</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="dropdown col-2">
-                            <button class="btn dropdown-toggle right-head dr" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Hiển thị 10
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Hiển thị 20</a></li>
-                                <li><a class="dropdown-item" href="#">Hiển thị 30</a></li>
-                            </ul>
+                            <div class="dropdown col-2">
+                                <select id="status" class="dr right-head" name="status">
+                                    <option value="10">Hiển thị 10</option>
+                                    <option value="20">Hiển thị 20</option>
+                                </select>
+                            </div>
                         </div>
+                        
                     </div>
                     <main>
                         <div class="row list" id="user-container"></div>
