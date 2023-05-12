@@ -28,8 +28,6 @@ let users = [
     role: "admin",
   },
 ];
-
-
 //
 const userContainer = document.getElementById("user-container");
 
@@ -73,7 +71,7 @@ users.forEach((user) => {
   createUserCard(user);
 });
 
-const userRoleSelect = document.getElementById("status");
+const userRoleSelect = document.getElementById("status-user");
 
 userRoleSelect.addEventListener("change", () => {
   const selectedRole = userRoleSelect.value;
