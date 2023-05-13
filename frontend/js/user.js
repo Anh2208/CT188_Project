@@ -5,18 +5,18 @@ let provinceCode;
 
 //check user
 if (localStorage.getItem("user")) {
-  console.log(localStorage.getItem("user"));
+  consolelog(localStorage.getItem("user"));
   const user = JSON.parse(localStorage.getItem("user"));
-  const userEmail = user.email;
+  const userEmail = user.email || "Chưa có email!!!";
   const userName = user.username;
-  const userPass = user.password;
-  const userPhone = user.phone;
+  // const userPass = user.password;
+  const userPhone = user.phone || "";
   const userSex = user.sex;
 
   document.getElementById("email").value = userEmail;
   document.getElementById("username").value = userName;
   document.getElementById("phone").value = userPhone;
-  document.getElementById("repassword").value = userPass;
+  // document.getElementById("repassword").value = userPass;
   if (userSex == "female") {
     document.getElementById("female").checked = true;
   } else {
@@ -87,46 +87,55 @@ const phoneInput = form.querySelector("#phone");
 const emailError = form.querySelector("#email-error");
 const phoneError = form.querySelector("#phone-error");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const email = emailInput.value;
-  const phone = phoneInput.value;
+// form.addEventListener("submit", function (event) {
+//   event.preventDefault();
+//   const email = emailInput.value;
+//   const phone = phoneInput.value;
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (email !== "" && !emailRegex.test(email)) {
-    emailError.style.display = "block";
-  } else {
-    emailError.style.display = "none";
-  }
+//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//   if (email !== "" && !emailRegex.test(email)) {
+//     emailError.style.display = "block";
+//   } else {
+//     emailError.style.display = "none";
+//   }
 
-  const phoneRegex = /^[0-9]{10}$/;
-  if (phone !== "" && !phoneRegex.test(phone)) {
-    phoneError.style.display = "block";
-  } else {
-    phoneError.style.display = "none";
-  }
+//   const phoneRegex = /^[0-9]{10}$/;
+//   if (phone !== "" && !phoneRegex.test(phone)) {
+//     phoneError.style.display = "block";
+//   } else {
+//     phoneError.style.display = "none";
+//   }
 
-  // Nếu email và số điện thoại hợp lệ, tiến hành lưu thông tin chỉnh sửa
-  if (
-    emailError.style.display === "none" &&
-    phoneError.style.display === "none"
-  ) {
-    // Code để lưu thông tin chỉnh sửa
-    console.log("Lưu thông tin chỉnh sửa thành công!");
-  }
-});
+//   // Nếu email và số điện thoại hợp lệ, tiến hành lưu thông tin chỉnh sửa
+//   if (
+//     emailError.style.display === "none" &&
+//     phoneError.style.display === "none"
+//   ) {
+//     // Code để lưu thông tin chỉnh sửa
+//     console.log("Lưu thông tin chỉnh sửa thành công!");
+//   }
+// });
 
 //
 function checkPassword() {
   var newPassword = document.getElementById("newPassword").value;
   var confirmPassword = document.getElementById("checknewPassword").value;
+  var passOld = document.getElementById("repassword").value;
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  if (newPassword == confirmPassword) {
+  if (passOld != user.password) {
+    alert("Sai mật khẩu!!!");
+  } else if (
+    newPassword == confirmPassword &&
+    newPassword != "" &&
+    confirmPassword != ""
+  ) {
+    user.password = newPassword;
+    localStorage.setItem("user", JSON.stringify(user));
     alert("Đổi mật khẩu thành công!!!");
-    // document.getElementById("password-match-message").innerHTML =
-    //   "Mật khẩu mới trùng khớp.";
+    location.reload();
   } else {
-    alert("sai roi ne");
+    alert("Mật khẩu cũ và với không trùng khớp hoặc chưa nhập!!!");
     // document.getElementById("password-match-message").innerHTML =
     //   "Mật khẩu mới không trùng khớp.";
   }
@@ -142,4 +151,55 @@ logoutBtn.addEventListener("click", function (event) {
   localStorage.clear();
   // Chuyển hướng về trang Login
   location.href = "./Login.html";
+});
+
+// Lưu thông tin chỉnh sửa
+// Lấy button lưu thông tin chỉnh sửa
+const saveBtn = document.getElementById("save-btn");
+
+// Thêm sự kiện click vào button lưu thông tin chỉnh sửa
+saveBtn.addEventListener("click", function () {
+  // Cập nhật giá trị user lên localStorage
+  // Lấy giá trị các trường thông tin từ form
+  const name = document.getElementById("username").value;
+  const sex = document.querySelector(
+    'input[name="inlineRadioOptions"]:checked'
+  ).value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+
+  // Lấy giá trị user từ localStorage
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  // Cập nhật giá trị user với các giá trị mới
+  user.name = name;
+  user.sex = sex;
+  user.email = email;
+  user.phone = phone;
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email !== "" && !emailRegex.test(email)) {
+    emailError.style.display = "block";
+  } else {
+    emailError.style.display = "none";
+  }
+
+  const phoneRegex = /^[0-9]{10}$/;
+  if (phone !== "" && !phoneRegex.test(phone)) {
+    phoneError.style.display = "block";
+  } else {
+    phoneError.style.display = "none";
+  }
+
+  if (
+    email !== "" &&
+    emailRegex.test(email) &&
+    phone !== "" &&
+    phoneRegex.test(phone)
+  ) {
+    // Lưu giá trị user mới vào localStorage
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Lưu thông tin chỉnh sửa thành công!");
+    location.reload();
+  }
 });

@@ -101,3 +101,13 @@ body {
   width: 150px;
   height: 150px;
 }
+
+.card_1{
+  text-align: justify;
+}
+.card_1 td{
+  color: blue;
+}
+.card_2{
+  text-align: center;
+}

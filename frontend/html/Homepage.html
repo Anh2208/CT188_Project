@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <header class="header" style="margin-top: 0;">
-    <a href="./Header.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
+    <a href="./Homepage.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
     <nav class="navbar">
         <a href="./Homepage.html">Trang Chủ</a>
         <a href="#products">Sản Phẩm</a>
@@ -39,6 +39,7 @@
             </li>
             <li><a class="dropdown-item" id="register" href="./register.html">Đăng ký</a></li>
             <li><a class="dropdown-item" id="infoUser" href="./User.html">Trang Cá Nhân</a></li>
+            <li><a class="dropdown-item" id="cartUser">Giỏ Hàng</a></li>
             <li><a class="dropdown-item" id="logout" href="./Login.html">Đăng xuất</a></li>
         </ul>
     </div>
@@ -61,7 +62,7 @@
 
     <div class="container">
         <header>
-            <h1>Your Shopping Cart</h1>
+            <h1>TAT SHOP</h1>
             <div class="shopping">
                 <!-- <img src="image/shopping.svg"> -->
                 <i class="fas fa-cart-shopping icon"></i>
@@ -80,15 +81,13 @@
                             role="button" aria-expanded="false" aria-controls="collapse1">Thực phẩm</li>
                         <div class="collapse" id="collapse1">
                             <ul class="list-group">
-                                <a href="#" data-type="collapse11">
-                                    <li id="collapse11" class="list-group-item">Đồ ăn liền</li>
-                                </a>
-                                <a href="#" data-type="collapse12">
-                                    <li id="collapse12" class="list-group-item">Đồ tươi</li>
-                                </a>
-                                <a href="#" data-type="collapse13">
-                                    <li id="collapse13" class="list-group-item">Đồ ăn đông lạnh</li>
-                                </a>
+                                <li id="collapse11" class="list-group-item"><a href="#" data-type="collapse11">Đồ ăn
+                                        liền</a></li>
+
+                                <li id="collapse12" class="list-group-item"><a href="#" data-type="collapse12">Đồ
+                                        tươi</a></li>
+                                <li id="collapse13" class="list-group-item"><a href="#" data-type="collapse13">Đồ ăn
+                                        đông lạnh</a></li>
                             </ul>
                         </div>
                         <li class="list-group-item list-group-item-action head" data-toggle="collapse" href="#collapse2"
@@ -182,6 +181,8 @@
         <div class="checkOut">
             <div class="total">0</div>
             <div class="closeShopping">Close</div>
+            <button class="btn btn-success" id="buy-button">Đặt Hàng</button>
+            <button class="btn btn-danger" id="delete-button">Hủy</button>
         </div>
     </div>
     <script src="../js/Cartv1.js"></script>

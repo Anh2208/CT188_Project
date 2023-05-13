@@ -203,4 +203,5 @@ function signup(e) {
   var json = JSON.stringify(user);
   localStorage.setItem("user", json);
   alert("Đăng ký thành công");
+  window.location.href = "Login.html";
 }

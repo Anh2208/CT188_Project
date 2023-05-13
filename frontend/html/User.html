@@ -20,7 +20,7 @@
 
 <body>
     <header class="header">
-        <a href="./Header.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
+        <a href="./Homepage.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
         <nav class="navbar">
             <a href="./Homepage.html">Trang Chủ</a>
             <a href="#products">Sản Phẩm</a>
@@ -42,6 +42,7 @@
                 </li>
                 <li><a class="dropdown-item" id="register" href="./register.html">Đăng ký</a></li>
                 <li><a class="dropdown-item" id="infoUser" href="./User.html">Trang Cá Nhân</a></li>
+                <li><a class="dropdown-item" id="cartUser" href="./checkout.html">Giỏ Hàng</a></li>
                 <li><a class="dropdown-item" id="logout" href="./Login.html">Đăng xuất</a></li>
             </ul>
         </div>
@@ -62,18 +63,18 @@
 
 
     <main>
-        <a href="../html/Header.html" class="backhistory"><i class="fas fa fa-chevron-left"></i> Quay về lịch sử mua
+        <a href="../html/Homepage.html" class="backhistory"><i class="fas fa fa-chevron-left"></i> Quay về trang chủ
             hàng</a>
         <div class="main">
             <form class="input">
                 <label><i class="fas fa-user"></i><b>Thông tin cá nhân</b></label>
                 <hr>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="option1">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="male">
                     <label class="form-check-label" for="male">Anh</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="option2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="female">
                     <label class="form-check-label" for="female">Chị</label>
                 </div>
                 <div class="name">
@@ -87,7 +88,7 @@
                     <input type="tel" class="form-control" id="phone" maxlength="10">
                     <p id="phone-error" style="display:none; color:red;">Vui lòng chỉ nhập số điện thoại</p>
                 </div>
-                <button class="update-btn btn btn-success" type="submit">Lưu thông tin chỉnh sửa</button>
+                <button class="update-btn btn btn-success" id="save-btn" type="submit">Lưu thông tin chỉnh sửa</button>
             </form>
 
         </div>
