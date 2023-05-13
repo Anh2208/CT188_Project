@@ -201,6 +201,6 @@ function signup(e) {
     password: password,
   };
   var json = JSON.stringify(user);
-  localStorage.setItem(username, json);
+  localStorage.setItem("user", json);
   alert("Đăng ký thành công");
 }
