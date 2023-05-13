@@ -287,13 +287,13 @@ let products = [
 ];
 products.splice(2, 1);
 // let listCards = [];
-let listCards = JSON.parse(localStorage.getItem('listCards')) || [];
+let listCards = JSON.parse(localStorage.getItem("listCards")) || [];
 
 // filter out null elements
-listCards = listCards.filter(card => card !== null);
+listCards = listCards.filter((card) => card !== null);
 
-if(localStorage.getItem('listCards')){
-    reloadCard();
+if (localStorage.getItem("listCards")) {
+  reloadCard();
 }
 
 function initApp() {
@@ -310,15 +310,14 @@ function initApp() {
 }
 initApp();
 function addToCard(key) {
-  if(localStorage.getItem('user')){
+  if (localStorage.getItem("user")) {
     if (listCards[key] == null) {
-        // copy product form list to list card
-        listCards[key] = JSON.parse(JSON.stringify(products[key]));
-        listCards[key].quantity = 1;
-      }
-      reloadCard();
-  }
-  else{
+      // copy product form list to list card
+      listCards[key] = JSON.parse(JSON.stringify(products[key]));
+      listCards[key].quantity = 1;
+    }
+    reloadCard();
+  } else {
     alert("Vui lòng đăng nhập!!!");
   }
 }
@@ -406,14 +405,19 @@ $(document).ready(function () {
 // assuming that the list of cards is stored in an array called listCards
 const buyButton = document.querySelector("#buy-button");
 buyButton.addEventListener("click", function () {
-    localStorage.setItem('listCards', JSON.stringify(listCards));
-    alert("Đặt hàng thành công, vui lòng đến giỏ hàng để thanh toán!!!")
+  // console.log(localStorage.getItem("listCards"));
+  localStorage.setItem("listCards", JSON.stringify(listCards));
+  if (localStorage.getItem("listCards") && listCards != "") {
+    alert("Đặt hàng thành công!!!");
     window.location.href = "checkout.html";
+  } else {
+    alert("Vui lòng thêm sản phẩm vào giỏ hàng để đặt hàng!!!");
+  }
 });
 const deButton = document.querySelector("#delete-button");
 deButton.addEventListener("click", function () {
-    alert("Hủy đơn thành công!!!");
-    body.classList.remove("active");
-    location.reload();
-    localStorage.removeItem("listCards");
+  alert("Hủy đơn thành công!!!");
+  body.classList.remove("active");
+  location.reload();
+  localStorage.removeItem("listCards");
 });

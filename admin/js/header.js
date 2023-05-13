@@ -15,3 +15,17 @@ homeLink.addEventListener("click", () => {
   col.nextElementSibling.classList.toggle("col-sm-10");
   col.nextElementSibling.classList.toggle("col-sm-11");
 });
+var logoutBtn = document.querySelector('.dropdown-menu a[href="./Login.html"]');
+logoutBtn.addEventListener("click", function (event) {
+  // Ngăn chặn hành động mặc định của phần tử <a> khi click
+  event.preventDefault();
+  // Xóa toàn bộ thông tin ở localStorage
+  localStorage.clear();
+  // Chuyển hướng về trang Login
+  location.href = "./Login.html";
+});
+
+if(!localStorage.getItem('user')){
+  alert("Vui lòng Đăng nhập!!!")
+  window.location.href = "Login.html";
+}

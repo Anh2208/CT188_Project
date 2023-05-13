@@ -5,7 +5,7 @@ let provinceCode;
 
 //check user
 if (localStorage.getItem("user")) {
-  consolelog(localStorage.getItem("user"));
+  // consolelog(localStorage.getItem("user"));
   const user = JSON.parse(localStorage.getItem("user"));
   const userEmail = user.email || "Chưa có email!!!";
   const userName = user.username;
