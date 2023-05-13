@@ -13,6 +13,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/cart.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 </head>
@@ -61,31 +62,27 @@
                 <div class="content">
                     <h1>Đơn Hàng</h1>
                     <div class="row">
-                        <div class="col-8 lefy-head">
-                            <span class="search-span"><input type="text" class="search-input"
-                                    placeholder="Enter your search"> <i class="fas fa-search btn-search"></i></span>
-                        </div>
+                        <div class="col-8 left-head">
+                            <span class="search-span">
+                                <input type="text" class="search-input" placeholder="Nhập tên sản phẩm">
+                                <button class="btn-search"><i class="fas fa-search"></i></button>
+                            </span>
+                        </div>                        
                         <div class="dropdown col-2">
-                            <button class="btn dropdown-toggle right-head dr" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Trạng thái
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Đã thanh toán</a></li>
-                                <li><a class="dropdown-item" href="#">Chưa thanh toán</a></li>
-                                <li><a class="dropdown-item" href="#">Đã giao</a></li>
-                                <li><a class="dropdown-item" href="#">Đang giao</a></li>
-                            </ul>
-                        </div>
+                            <select id="status-dropdown" class="dr right-head" name="status">
+                                <option value="Tất cả">Tất cả</option>
+                                <option value="Đã thanh toán">Đã thanh toán</option>
+                                <option value="Chưa thanh toán">Chưa thanh toán</option>
+                                <option value="Đã giao">Đã giao</option>
+                                <option value="Đang giao">Đang giao</option>
+                            </select>                            
+                          </div>
+                          
                         <div class="dropdown col-2">
-                            <button class="btn dropdown-toggle right-head dr" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Hiển thị 10
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Hiển thị 20</a></li>
-                                <li><a class="dropdown-item" href="#">Hiển thị 30</a></li>
-                            </ul>
+                            <select id="status" class="dr right-head" name="status">
+                                <option value="10">Hiển thị 10</option>
+                                <option value="20">Hiển thị 20</option>
+                            </select>
                         </div>
                     </div>
                     <main>
@@ -109,9 +106,36 @@
             </div>
         </div>
     </div>
+    
 </body>
 <script src="../js/header.js"></script>
 <script src="../js/cart.js"></script>
+<script>
+    function searchByName() {
+        // Lấy giá trị tìm kiếm từ ô input
+        const nameInput = document.querySelector(".search-input").value.toUpperCase();
+
+        // Lấy tất cả các hàng từ bảng
+        const rows = document.querySelectorAll("tbody tr");
+
+        // Duyệt qua từng hàng trong bảng
+        rows.forEach(row => {
+            // Lấy tên của sản phẩm từ hàng
+            const name = row.querySelector("td:nth-child(2)").textContent.toUpperCase();
+            // Nếu tên sản phẩm chứa chuỗi tìm kiếm thì hiển thị hàng đó, ngược lại ẩn đi
+            if (name.includes(nameInput)) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+
+    // Gán sự kiện click cho nút tìm kiếm
+    const searchButton = document.querySelector(".btn-search");
+    searchButton.addEventListener("click", searchByName);
+</script>
+
 <footer>
 
 </footer>

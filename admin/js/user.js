@@ -28,7 +28,7 @@ let users = [
     role: "admin",
   },
 ];
-
+//
 const userContainer = document.getElementById("user-container");
 
 function createUserCard(user) {
@@ -66,8 +66,27 @@ function createUserCard(user) {
   card.appendChild(cardBody);
   userContainer.appendChild(card);
 }
-
+//hiển thị thông tin user
 users.forEach((user) => {
   createUserCard(user);
 });
+
+const userRoleSelect = document.getElementById("status-user");
+
+userRoleSelect.addEventListener("change", () => {
+  const selectedRole = userRoleSelect.value;
+
+  const filteredUsers = selectedRole === "all" ? users : users.filter(user => user.role === selectedRole);
+
+  displayUsers(filteredUsers);
+});
+
+function displayUsers(users) {
+  const userContainer = document.getElementById("user-container");
+  userContainer.innerHTML = "";
+
+  users.forEach(user => {
+    createUserCard(user);
+  });
+}
 
