@@ -28,7 +28,7 @@ document.querySelector('#menu-btn').onclick = () => {
 
 window.onscroll = () => {
     searchForm.classList.remove('active');
-    shoppingCart.classList.remove('active');
+    // shoppingCart.classList.remove('active');
     navbar.classList.remove('active');
 }
 const loginBtn = document.querySelector('#login-btn');

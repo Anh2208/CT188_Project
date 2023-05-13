@@ -201,7 +201,13 @@ function signup(e) {
     password: password,
   };
   var json = JSON.stringify(user);
+<<<<<<< HEAD
   localStorage.setItem(username, json);
   alert("Đăng ký thành công. Bạn sẽ được chuyển đến trang đăng nhập");
   window.location.href = "./Login.html";
 }
+=======
+  localStorage.setItem("user", json);
+  alert("Đăng ký thành công");
+}
+>>>>>>> a8b2a04258a64e0b8b3230261313bbfbb436193a

@@ -22,12 +22,12 @@
     <header class="header">
         <a href="./Header.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
         <nav class="navbar">
-            <a href="./Header.html">Trang Chủ</a>
+            <a href="./Homepage.html">Trang Chủ</a>
             <a href="#products">Sản Phẩm</a>
             <a href="#blog">Blog</a>
             <a href="#about">Thông Tin</a>
         </nav>
-    
+
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
@@ -45,11 +45,11 @@
                 <li><a class="dropdown-item" id="logout" href="./Login.html">Đăng xuất</a></li>
             </ul>
         </div>
-    
+
         <form action="" class="search-form">
             <input list="search_terms" type="search" id="search-box" placeholder="Search Here" />
             <label for="search-box" class="fas fa-search"></label>
-    
+
             <datalist id="search_terms">
                 <option value="Products"></option>
                 <option value="New orders"></option>
@@ -57,10 +57,10 @@
                 <option value="Ahmed Hassan"></option>
             </datalist>
         </form>
-    
+
     </header>
 
-    
+
     <main>
         <a href="../html/Header.html" class="backhistory"><i class="fas fa fa-chevron-left"></i> Quay về lịch sử mua
             hàng</a>
@@ -69,13 +69,11 @@
                 <label><i class="fas fa-user"></i><b>Thông tin cá nhân</b></label>
                 <hr>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male"
-                        value="option1">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="male" value="option1">
                     <label class="form-check-label" for="male">Anh</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female"
-                        value="option2">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="option2">
                     <label class="form-check-label" for="female">Chị</label>
                 </div>
                 <div class="name">
@@ -141,6 +139,35 @@
         </div>
 
     </main>
+    <footer class="text-center text-lg-start" style="background-color: #0b3288;">
+        <div>
+            <div class="container d-flex justify-content-center py-5">
+                <button type="button" onclick="location.href='https://facebook.com'"
+                    class="btn btn-primary btn-lg btn-floating mx-2">
+                    <i class="fab fa-facebook"></i>
+                </button>
+                <button type="button" onclick="location.href='https://youtube.com'"
+                    class="btn btn-primary btn-lg btn-floating mx-2">
+                    <i class=" fab fa-youtube"></i>
+                </button>
+                <button type="button" onclick="location.href='https://instagram.com'"
+                    class="btn btn-primary btn-lg btn-floating mx-2">
+                    <i class="fab fa-instagram"></i>
+                </button>
+                <button type="button" onclick="location.href='https://twitter.com'"
+                    class="btn btn-primary btn-lg btn-floating mx-2">
+                    <i class="fab fa-twitter"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-white p-3" style="background-color: rgba(16, 6, 68, 0.459);">
+            © 2023 Copyright:
+            <a class="text-white">Cảm ơn bạn đã lựa chọn chúng tôi</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 </body>
 <script src="../js/user.js"></script>
 <script src="../js/header.js"></script>

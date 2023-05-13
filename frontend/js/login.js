@@ -62,7 +62,7 @@ function login() {
     localStorage.setItem("user", JSON.stringify(user));
 
     // Chuyển hướng người dùng đến trang header.html
-    window.location.href = "header.html";
+    window.location.href = "Homepage.html";
   } else {
     // Nếu thông tin đăng nhập sai, hiển thị thông báo lỗi
     const formMessage = document.querySelector(".form-message");
