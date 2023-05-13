@@ -20,37 +20,36 @@
 
 <body>
     <header class="header">
-        <a style="text-decoration: none;" href="#" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
+        <a href="./Header.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
         <nav class="navbar">
             <a href="./Header.html">Trang Chủ</a>
             <a href="#products">Sản Phẩm</a>
             <a href="#blog">Blog</a>
             <a href="#about">Thông Tin</a>
         </nav>
-
+    
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-shopping-cart" id="cart-btn"></div>
             <a class="dropdown-toggle dropdown-toggle-no-caret" href="#" role="button" id="dropdownMenuLink"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="fas fa-user" id="login-btn"></div>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Đăng Nhập</a></li>
-                <li><a class="dropdown-item" href="./Login.html">Đăng Xuất</a></li>
+                <li><a class="dropdown-item" id="loginButton" href="./Login.html">Đăng Nhập</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="./register.html">Đăng ký</a></li>
-                <li><a class="dropdown-item" href="./User.html">Trang Cá Nhân</a></li>
+                <li><a class="dropdown-item" id="register" href="./register.html">Đăng ký</a></li>
+                <li><a class="dropdown-item" id="infoUser" href="./User.html">Trang Cá Nhân</a></li>
+                <li><a class="dropdown-item" id="logout" href="./Login.html">Đăng xuất</a></li>
             </ul>
         </div>
-
+    
         <form action="" class="search-form">
             <input list="search_terms" type="search" id="search-box" placeholder="Search Here" />
             <label for="search-box" class="fas fa-search"></label>
-
+    
             <datalist id="search_terms">
                 <option value="Products"></option>
                 <option value="New orders"></option>
@@ -58,35 +57,7 @@
                 <option value="Ahmed Hassan"></option>
             </datalist>
         </form>
-
-        <div class="shopping-cart">
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img style="width: 100px;" src="../assets//images//cart-img-01.jpg" alt="">
-                <div class="content">
-                    <h3>one</h3>
-                    <span class="price">2 tỉ VND</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img style="width: 100px;" src="../assets//images//cart-img-02.jpg" alt="">
-                <div class="content">
-                    <h3>two</h3>
-                    <span class="price">2 tỉ VND</span>
-                </div>
-            </div>
-            <div class="box">
-                <i class="fas fa-trash"></i>
-                <img style="width: 100px;" src="../assets//images//cart-img-03.jpg" alt="">
-                <div class="content">
-                    <h3>three</h3>
-                    <span class="price">2 tỉ VND</span>
-                </div>
-            </div>
-            <div class="total">total: 6 tỉ</div>
-            <a href="#" class="btn">checkout</a>
-        </div>
+    
     </header>
 
     
