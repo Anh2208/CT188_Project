@@ -104,7 +104,7 @@ function Validator(options) {
 
             return values;
           },
-          {});
+            {});
           options.onSubmit(formValues);
         }
         // Trường hợp submit với hành vi mặc định
@@ -201,7 +201,18 @@ function signup(e) {
     password: password,
   };
   var json = JSON.stringify(user);
+<<<<<<< HEAD
+  localStorage.setItem(username, json);
+  alert("Đăng ký thành công. Bạn sẽ được chuyển đến trang đăng nhập");
+  window.location.href = "./Login.html";
+}
+=======
   localStorage.setItem("user", json);
   alert("Đăng ký thành công");
+<<<<<<< HEAD
   window.location.href = "Login.html";
 }
+=======
+}
+>>>>>>> a8b2a04258a64e0b8b3230261313bbfbb436193a
+>>>>>>> 4161716a5a8c6e15bce3e074ed680081c4a5050d

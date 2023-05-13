@@ -30,12 +30,13 @@ function add() {
         script: script,
         img: img
     })
+
     localStorage.setItem("list-item", JSON.stringify(item))
     console.log(localStorage)
     if (!checkID(id)) {
         alert("Sản phẩm đã tồn tại! Vui lòng nhập sản phẩm khác")
     }
-    // render()
+    // render(item)
     clear()
 
 }
@@ -74,10 +75,10 @@ function add() {
 //}
 
 var tb = document.getElementById('itemList')
-let item = document.createElement('tr')
+
 //hiển thị Item
-var render = () => {
-    let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
+var render = (listItem) => {
+    listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
     tb.innerHTML = `<tr>
                 <th>ID</th>
                 <th>Tên sản phẩm</th>
@@ -98,15 +99,18 @@ var render = () => {
         <td>${listItem[i].script}</td>
         <td><img src=""></td>
         <td>
-            <button onclick="editItem(${listItem[i].id})">Sửa</button>
-            <button onclick="deleteItem(${listItem[i].id})">Xoá</button>
+            <button onclick="editItem(${listItem[i].id})"><i class="fa fa-pencil"></i></button>
+            <button onclick="deleteItem(${listItem[i].id})"><i class="fa fa-trash-can"></i></button>
         </td>
     </tr>`
         tb.innerHTML += inin;
     }
+
+
 }
 
 render()
+
 
 function clear() {
     document.getElementById("id").value = ""
@@ -140,6 +144,54 @@ function deleteItem(x) {
             listItem.splice(i, 1)
             localStorage.setItem("list-item", JSON.stringify(listItem))
             render()
+        }
+    }
+}
+//tìm kiếm Item
+function searchItem() {
+    let input = document.getElementById("searchInput").value;
+    let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
+    var result = []
+    if (searchItem) {
+        for (let i = 0; i < listItem.length; i++) {
+            var str = listItem[i].name
+            if (str.includes(input)) {
+                document.getElementById("tableSearch").style.display = "block";
+                document.getElementById("itemList").style.display = "none";
+                var itemSearch = {
+                    id: listItem[i].id,
+                    name: listItem[i].name,
+                    type: listItem[i].type,
+                    price: listItem[i].price,
+                    quantity: listItem[i].quantity,
+                    script: listItem[i].script,
+                    img: listItem[i].img
+                }
+                result.push(itemSearch)
+
+                var table = `<tr>
+                                    <th>ID</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Loại</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Mô tả</th>
+                                    <th>Hình ảnh</th>
+                                </tr>`;
+                for (let i = 0; i < result.length; i++) {
+                    table += `<tr>
+                                    <td>${result[i].id}</td>
+                                    <td>${result[i].name}</td>
+                                    <td>${result[i].type}</td>
+                                    <td>${result[i].price}</td>
+                                    <td>${result[i].quantity}</td>            
+                                    <td>${result[i].script}</td>
+                                    <td><img src=""></td>
+                                </tr>`
+                    document.getElementById("tableSearch").innerHTML = table
+                    console.log(result)
+                }
+            }
         }
     }
 }
