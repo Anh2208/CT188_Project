@@ -104,7 +104,7 @@ function Validator(options) {
 
             return values;
           },
-          {});
+            {});
           options.onSubmit(formValues);
         }
         // Trường hợp submit với hành vi mặc định
@@ -202,5 +202,6 @@ function signup(e) {
   };
   var json = JSON.stringify(user);
   localStorage.setItem(username, json);
-  alert("Đăng ký thành công");
+  alert("Đăng ký thành công. Bạn sẽ được chuyển đến trang đăng nhập");
+  window.location.href = "./Login.html";
 }

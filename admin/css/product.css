@@ -1,0 +1,13 @@
+#tableSearch {
+    width: 100%;
+}
+
+.search-input {
+    border: 0;
+}
+
+.search-span {
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+}
