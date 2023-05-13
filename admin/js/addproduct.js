@@ -1,7 +1,8 @@
-var data = [];
 function checkID(id) {
-    for (var i = 0; i < data.length; i++) {
-        if (data[i].id == id) {
+    let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
+    for (let i = 0; i < listItem.length; i++) {
+        if (listItem[i].id == id) {
+
             return true;
         }
     }
@@ -18,7 +19,8 @@ function add() {
     var script = document.getElementById("script").value
     var img = document.getElementById("img").value
 
-    var item = {
+    let item = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
+    item.push({
         id: id,
         name: name,
         type: type,
@@ -26,51 +28,52 @@ function add() {
         quantity: quantity,
         script: script,
         img: img
-    }
+    })
     if (!checkID(id)) {
-        data.push(item);
-        render()
-        clear()
+        render();
     } else {
         alert("Sản phẩm đã tồn tại! Vui lòng nhập sản phẩm khác")
+        localStorage.removeItem("listItem")
     }
-    var json = JSON.stringify(item)
-    localStorage.setItem(id, json)
-    console.log(window.localStorage)
+    localStorage.setItem("list-item", JSON.stringify(item))
+    console.log(localStorage)
 
-    function render() {
-        table = `<tr>
-                <th>ID</th>
-                <th>Tên sản phẩm</th>
-                <th>Loại</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Mô tả</th>
-                <th>Hình ảnh</th>
-                </tr>`
+}
 
-        for (let i = 0; i < data.length; i++) {
-            table += `<tr>
-                <th>${data[i].id}</th>
-                <th>${data[i].name}</th>
-                <th>${data[i].type}</th>
-                <th>${data[i].price}</th>
-                <th>${data[i].quantity}</th>
-                <th>${data[i].script}</th>
-                <th>${data[i].img}</th>
-            </tr>`
-        }
-        document.getElementById("render").innerHTML = table
+function render() {
+    let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
+    let item = `<tr>
+        <th>ID</th>
+        <th>Tên sản phẩm</th>
+        <th>Loại</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Mô tả</th>
+        <th>Hình ảnh</th>
+        <th>Chỉnh sửa</th>
+    </tr>`
+
+    for (let i = 0; i < listItem.length; i++) {
+        item += `<tr>
+        <td>${listItem[i].id}</td>
+        <td>${listItem[i].name}</td>
+        <td>${listItem[i].type}</td>
+        <td>${listItem[i].price}</td>
+        <td>${listItem[i].quantity}</td>            
+        <td>${listItem[i].script}</td>
+        <td>${listItem[i].img}</td>
+    </tr>`
     }
-    function clear() {
-        document.getElementById("id").value = ""
-        document.getElementById("name").value = ""
-        document.getElementById("type").value = ""
-        document.getElementById("price").value = ""
-        document.getElementById("quantity").value = ""
-        document.getElementById("script").value = ""
-        document.getElementById("img").value = ""
-    }
+    document.getElementById("tableContent").innerHTML = item
+}
+function clear() {
+    document.getElementById("id").value = ""
+    document.getElementById("name").value = ""
+    document.getElementById("type").value = ""
+    document.getElementById("price").value = ""
+    document.getElementById("quantity").value = ""
+    document.getElementById("script").value = ""
+    document.getElementById("img").value = ""
 }
 
 function chooseImg(fileInput) {
@@ -81,31 +84,5 @@ function chooseImg(fileInput) {
             $('#image').attr('src', e.target.result);
         }
         reader.readAsDataURL(fileInput.files[0]);
-    }
-}
-
-// lấy phần Modal
-var modal = document.getElementById('myModal');
-
-// Lấy phần button mở Modal
-var btn = document.getElementById("myBtn");
-
-// Lấy phần span đóng Modal
-var span = document.getElementsByClassName("close")[0];
-
-// Khi button được click thi mở Modal
-// btn.onclick = function () {
-//     modal.style.display = "block";
-// }
-
-// Khi span được click thì đóng Modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-// Khi click ngoài Modal thì đóng Modal
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
     }
 }
