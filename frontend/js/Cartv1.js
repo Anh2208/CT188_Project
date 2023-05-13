@@ -24,7 +24,7 @@ let products = [
     
     {
         id: 2,
-        name: 'Thùng 30 gói mì Hảo Hảo tôm chua cay 75g',
+        name: '<a href="ct-myhaohao.html" style="text-decoration:none; color:black;">Thùng 30 gói mì Hảo Hảo tôm chua cay 75g</a>',
         image: '../../assets/images/thung-30-goi-mi-hao-hao-tom-chua-cay-75g-202211181144401243.jpg',
         price: 120000,
         type: "collapse31",
@@ -38,7 +38,7 @@ let products = [
     },
     {
         id: 4,
-        name: 'Thùng 30 gói mì Đệ Nhất thịt bằm 82g',
+        name: '<a href="ct-mydenhat.html" style="text-decoration:none; color:black;">Thùng 30 gói mì Đệ Nhất thịt bằm 82g</a>',
         image: '../../assets/images/mydenhat1.jpg',
         price: 241000,
         type: "collapse31",
@@ -59,7 +59,7 @@ let products = [
     },
     {
         id: 7,
-        name: 'Thùng 24 ly mì Modern lẩu Thái tôm 65g',
+        name: '<a href="ct-mymodern.html" style="text-decoration:none; color:black;">Thùng 24 ly mì Modern lẩu Thái tôm 65g</a>',
         image: '../../assets/images/mylauthai1.jpg',
         price: 180000,
         type: "collapse31",
@@ -73,7 +73,7 @@ let products = [
     },
     {
         id: 9,
-        name: 'Thùng 30 gói mì Kokomi 90 tôm chua cay 90g',
+        name: '<a href="ct-mykokomi.html" style="text-decoration:none; color:black;">Thùng 30 gói mì Kokomi 90 tôm chua cay 90g</a>',
         image: '../../assets/images/kokomi1.jpg',
         price: 180000,
         type: "collapse31",
@@ -129,14 +129,14 @@ let products = [
     },
     {
         id: 17,
-        name: 'Thùng 30 gói hủ tiếu Nam Vang Nhịp Sống 70g',
+        name: '<a href="ct-namvang.html" style="text-decoration:none; color:black;">Thùng 30 gói hủ tiếu Nam Vang Nhịp Sống 70g</a>',
         image: '../../assets/images/hu-tieu-1.jpg',
         price: 240000,
         type: "collapse32",
     },
     {
         id: 18,
-        name: 'Thùng 24 gói miến sườn heo Vifon 58g',
+        name: '<a href="ct-miensuon.html" style="text-decoration:none; color:black;">Thùng 24 gói miến sườn heo Vifon 58g</a>',
         image: '../../assets/images/mien-suon1.jpg',
         price: 247000,
         type: "collapse32",
@@ -158,14 +158,14 @@ let products = [
     },
     {
         id: 21,
-        name: '5 tô hủ tiếu Nam Vang Nhớ mãi mãi tô 71g',
+        name: '<a href="ct-5htieu.html" style="text-decoration:none; color:black;">5 tô hủ tiếu Nam Vang Nhớ mãi mãi tô 71g</a>',
         image: '../../assets/images/combo-5-to-hu-tieu1.jpg',
         price: 81500,
         type: "collapse32",
     },
     {
         id: 22,
-        name: 'Thùng 24 gói miến sườn heo Vifon 58g',
+        name: '<a href="ct-mien2.html" style="text-decoration:none; color:black;">10 gói miến lẩu Thái Vifon 60g</a>',
         image: '../../assets/images/10-goi-mien-1.jpg',
         price: 113000,
         type: "collapse32",
@@ -215,28 +215,28 @@ let products = [
     },
     {
         id: 29,
-        name: 'Thùng 30 gói phở bò Vifon 65g',
+        name: '<a href="ct-phobo.html" style="text-decoration:none; color:black;">Thùng 30 gói phở bò Vifon 65g</a>',
         image: '../../assets/images/pho-bo-1.jpg',
         price: 210000,
         type: "collapse33",
     },
     {
         id: 30,
-        name: '10 gói bún mắm Hằng Nga 75g',
+        name: '<a href="ct-bunmam.html" style="text-decoration:none; color:black;">10 gói bún mắm Hằng Nga 75g</a>',
         image: '../../assets/images/bun-mam-1.jpg',
         price: 99000,
         type: "collapse33",
     },
     {
         id: 31,
-        name: '5 gói phở gà Vifon 65g',
+        name: '<a href="ct-phoga.html" style="text-decoration:none; color:black;">5 gói phở gà Vifon 65g</a>',
         image: '../../assets/images/pho-ga-1.jpg',
         price: 42500,
         type: "collapse33",
     },
     {
         id: 32,
-        name: '10 gói bún bò huế Hằng Nga 73g',
+        name: '<a href="ct-bunbo.html" style="text-decoration:none; color:black;">10 gói bún bò huế Hằng Nga 73g</a>',
         image: '../../assets/images/bun-bo-1.jpg',
         price: 95000,
         type: "collapse33",
