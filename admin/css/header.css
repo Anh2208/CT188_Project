@@ -92,3 +92,6 @@ body, html {
   font-size: 1.3rem;
   border-radius: 5px;
 }
+.navcard{
+  background-color: rgb(89, 232, 232);
+}

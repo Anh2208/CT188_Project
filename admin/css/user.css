@@ -7,7 +7,7 @@
     text-align: center;
 }
 .card-info{
-    border: 1px solid red;
+    border: 5px solid black;
     border-radius: 5px;
     margin: 20px;
     padding: 0;
@@ -18,11 +18,12 @@
 }
 .img-card{
     width: 100px;
-    background-color: palevioletred;
+    background-color: gray;
     padding: 10px;
     border-radius: 50%;
 }
 .card-body{
-    background-color: pink;
+    background-color: rgb(223, 229, 224);
+    /* background-color: pink; */
     padding: 20px;
 }
