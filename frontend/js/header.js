@@ -7,22 +7,14 @@ document.querySelector('#search-btn').onclick = () => {
 }
 
 
-let shoppingCart = document.querySelector('.shopping-cart');
-
-document.querySelector('#cart-btn').onclick = () => {
-    console.log('Search button clicked');
-    shoppingCart.classList.toggle('active');
-    searchForm.classList.remove('active');
-    navbar.classList.remove('active');
-}
-
 // let shoppingCart = document.querySelector('.shopping-cart');
 
 // document.querySelector('#cart-btn').onclick = () => {
 //     console.log('Search button clicked');
 //     shoppingCart.classList.toggle('active');
+//     searchForm.classList.remove('active');
+//     navbar.classList.remove('active');
 // }
-
 let navbar = document.querySelector('.navbar');
 
 document.querySelector('#menu-btn').onclick = () => {
@@ -39,15 +31,38 @@ window.onscroll = () => {
     shoppingCart.classList.remove('active');
     navbar.classList.remove('active');
 }
+const loginBtn = document.querySelector('#login-btn');
+const loginItem = document.querySelector('#loginButton');
+const registerItem = document.querySelector('#register');
+const infoUserItem = document.querySelector('#infoUser');
+const logoutItem = document.querySelector('#logout');
+window.addEventListener("load", function() {
+  // Thực hiện kiểm tra localStorage và điều chỉnh trạng thái hiển thị của menu tương ứng
+  if (localStorage.getItem('user')) {
+    // Hiển thị menu trang cá nhân và đăng xuất
+    loginBtn.classList.add('dropdown-toggle-no-caret');
+    loginItem.style.display = 'none';
+    registerItem.style.display = 'none';
+    infoUserItem.style.display = 'block';
+    logoutItem.style.display = 'block';
+  } else {
+    // Hiển thị đăng nhập và đăng ký
+    loginBtn.classList.remove('dropdown-toggle-no-caret');
+    loginItem.style.display = 'block';
+    registerItem.style.display = 'block';
+    infoUserItem.style.display = 'none';
+    logoutItem.style.display = 'none';
+  }
+  
+});
+const logoutButton = document.querySelector('#logout');
 
+logoutButton.addEventListener('click', () => {
+  // Chuyển đến trang đăng nhập
+  window.location.href = "/dang-nhap";
 
-//show and hide loginButton
-const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-if (loggedInUser) {
-  // Người dùng đã đăng nhập, ẩn nút đăng nhập và hiển thị các tính năng cho người dùng đã đăng nhập
-  document.getElementById('loginButton').style.display = 'none';
-  // Hiển thị các tính năng cho người dùng đã đăng nhập
-} else {
-  // Người dùng chưa đăng nhập, hiển thị nút đăng nhập
-  // document.getElementById('loginButton').style.display = 'block';
-}
+  // Xóa toàn bộ thông tin trong localStorage
+  localStorage.clear();
+});
+
+console.log(localStorage);
