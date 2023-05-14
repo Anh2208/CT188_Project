@@ -49,7 +49,7 @@ function login() {
     const user = JSON.parse(localStorage.getItem("user"));
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
-    if(username === user.username && password === user.password){
+    if (username === user.username && password === user.password) {
       window.location.href = "Homepage.html";
     }
   }
@@ -67,6 +67,8 @@ function login() {
   if (user) {
     // Lưu thông tin người dùng vào localStorage
     localStorage.setItem("user", JSON.stringify(user));
+    //push product
+    localStorage.setItem("list-item", JSON.stringify(products))
 
     // Chuyển hướng người dùng đến trang header.html
     window.location.href = "product.html";
