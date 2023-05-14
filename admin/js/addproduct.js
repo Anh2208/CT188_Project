@@ -270,6 +270,8 @@ let products = [
         type: "Bánh",
     },
 ];
+
+// localStorage.setItem("list-item", JSON.stringify(products))
 function showProduct() {
     table = `<tr>
        <th>ID</th>
@@ -279,20 +281,21 @@ function showProduct() {
        <th>Hình ảnh</th>
        <th>Chỉnh sửa</th>
    </tr>`
-    for (let i = 0; i < products.length; ++i) {
-        table += `<tr>
-        
-       <td>${products[i].id}</td>
-       <td>${products[i].name}</td>
-       <td>${products[i].type}</td>
-       <td>${products[i].price}</td>
-       <td><img width ="50px" src="${products[i].image}"></td>
-       <td>
-            <button onclick="editItem(${products[i].id})"><i class="fa fa-pencil"></i></button>
-            <button onclick="deleteItem(${products[i].id})"><i class="fa fa-trash-can"></i></button>
-        </td>
-   </tr>`
-    }
+
+    //     for (let i = 0; i < products.length; ++i) {
+    //         table += `<tr>
+
+    //        <td>${products[i].id}</td>
+    //        <td>${products[i].name}</td>
+    //        <td>${products[i].type}</td>
+    //        <td>${products[i].price}</td>
+    //        <td><img width ="50px" src="${products[i].image}"></td>
+    //        <td>
+    //             <button onclick="editItem(${products[i].id})"><i class="fa fa-pencil"></i></button>
+    //             <button onclick="deleteItem(${products[i].id})"><i class="fa fa-trash-can"></i></button>
+    //         </td>
+    //    </tr>`
+    //     }
     var listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
     for (let i = 0; i < listItem.length; i++) {
         table += `<tr>
@@ -300,7 +303,7 @@ function showProduct() {
         <td>${listItem[i].name}</td>
         <td>${listItem[i].type}</td>
         <td>${listItem[i].price}</td>            
-        <td><img src=""></td>
+        <td><img width ="50px" src="${listItem[i].image}"></td>
         <td>
             <button onclick="editItem(${listItem[i].id})"><i class="fa fa-pencil"></i></button>
             <button onclick="deleteItem(${listItem[i].id})"><i class="fa fa-trash-can"></i></button>
@@ -339,76 +342,22 @@ function add() {
         price: price,
         img: img
     })
-
     localStorage.setItem("list-item", JSON.stringify(item))
     if (!checkID(id)) {
         alert("Sản phẩm đã tồn tại! Vui lòng nhập sản phẩm khác")
     }
-    // render(item)
     clear()
 
 }
 
-//hiển thị Item
-// function render() {
-//     let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
-//     let item = `<tr>
-//         <th>ID</th>
-//         <th>Tên sản phẩm</th>
-//         <th>Loại</th>
-//         <th>Giá</th>
-//         <th>Số lượng</th>
-//         <th>Mô tả</th>
-//         <th>Hình ảnh</th>
-//         <th>Chỉnh sửa</th>
-//     </tr>`
-
-// for (let i = 0; i < listItem.length; i++) {
-//     item += `<tr>
-//     <td>${listItem[i].id}</td>
-//     <td>${listItem[i].name}</td>
-//     <td>${listItem[i].type}</td>
-//     <td>${listItem[i].price}</td>
-//     <td>${listItem[i].quantity}</td>            
-//     <td>${listItem[i].script}</td>
-//     <td>${listItem[i].img}</td>
-//     <td>
-//         <button onclick="editItem(${listItem[i].id})">Sửa</button>
-//         <button onclick="deleteItem(${listItem[i].id})">Xoá</button>
-//     </td>
-// </tr>`
-// }
-
-
-//}
-
-
 function clear() {
-    document.getElementById("id").value = ""
-    document.getElementById("name").value = ""
-    document.getElementById("type").value = ""
-    document.getElementById("price").value = ""
-    document.getElementById("img").input = ""
-}
+    location.reload()
 
-//sửa Item
-// function editItem(id) {
-//     let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
-//     for (let i = 0; i < listItem.length; i++) {
-//         document.getElementById("id").value = listItem[i].id
-//         document.getElementById("name").value = listItem[i].name
-//         document.getElementById("type").value = listItem[i].type
-//         document.getElementById("price").value = listItem[i].price
-//         document.getElementById("quantity").value = listItem[i].quantity
-//         document.getElementById("script").value = listItem[i].script
-//         document.getElementById("img").value = listItem[i].img
-//     }
-// }
+}
 
 //xoá Item
 function deleteItem(x) {
     let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
-
     for (let i = 0; i < listItem.length; i++) {
         if (listItem[i].id == x) {
             listItem.splice(i, 1)
@@ -423,6 +372,7 @@ function deleteItem(x) {
             showProduct()
         }
     }
+
 }
 
 //tìm kiếm Item
