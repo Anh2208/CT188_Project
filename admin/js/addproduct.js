@@ -279,20 +279,6 @@ function showProduct() {
        <th>Hình ảnh</th>
        <th>Chỉnh sửa</th>
    </tr>`
-    for (let i = 0; i < products.length; ++i) {
-        table += `<tr>
-        
-       <td>${products[i].id}</td>
-       <td>${products[i].name}</td>
-       <td>${products[i].type}</td>
-       <td>${products[i].price}</td>
-       <td><img width ="50px" src="${products[i].image}"></td>
-       <td>
-            <button onclick="editItem(${products[i].id})"><i class="fa fa-pencil"></i></button>
-            <button onclick="deleteItem(${products[i].id})"><i class="fa fa-trash-can"></i></button>
-        </td>
-   </tr>`
-    }
     var listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
     for (let i = 0; i < listItem.length; i++) {
         table += `<tr>
@@ -331,7 +317,6 @@ function add() {
     var name = document.getElementById("name").value
     var type = document.getElementById("type").value
     var price = document.getElementById("price").value
-    var quantity = document.getElementById("quantity").value
     var img = document.getElementById("img").value
 
     let item = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
@@ -340,11 +325,9 @@ function add() {
         name: name,
         type: type,
         price: price,
-        quantity: quantity,
         img: img
     })
     localStorage.setItem("list-item", JSON.stringify(item))
-    console.log(localStorage)
     if (!checkID(id)) {
         alert("Sản phẩm đã tồn tại! Vui lòng nhập sản phẩm khác")
     }
@@ -353,13 +336,10 @@ function add() {
 }
 
 function clear() {
-    document.getElementById("id").value = ""
-    document.getElementById("name").value = ""
-    document.getElementById("type").value = ""
-    document.getElementById("price").value = ""
-    document.getElementById("img").input = ""
+    location.reload()
 }
 
+console.log(localStorage)
 //xoá Item
 function deleteItem(x) {
     let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
@@ -388,7 +368,6 @@ function searchItem() {
                     name: listItem[i].name,
                     type: listItem[i].type,
                     price: listItem[i].price,
-                    quantity: listItem[i].quantity,
                     img: listItem[i].img
                 }
                 result.push(itemSearch)
@@ -398,7 +377,6 @@ function searchItem() {
                                     <th>Tên sản phẩm</th>
                                     <th>Loại</th>
                                     <th>Giá</th>
-                                    <th>Số lượng</th>
                                     <th>Hình ảnh</th>
                                 </tr>`;
                 for (let i = 0; i < result.length; i++) {
@@ -407,7 +385,6 @@ function searchItem() {
                                     <td>${result[i].name}</td>
                                     <td>${result[i].type}</td>
                                     <td>${result[i].price}</td>
-                                    <td>${result[i].quantity}</td>
                                     <td><img src=""></td>
                                 </tr>`
                     document.getElementById("tableSearch").innerHTML = table
