@@ -44,6 +44,8 @@ let users = [
 console.log(localStorage);
 function login() {
   // Kiểm tra xem có thông tin người dùng trong localStorage không
+  // alert(localStorage.getItem("user"))
+
   if (localStorage.getItem("user")) {
     // localStorage.removeItem('user'); // Nếu có, xóa thông tin người dùng đó
     const user = JSON.parse(localStorage.getItem("user"));
