@@ -95,7 +95,7 @@ function searchItem() {
                     name: listItem[i].name,
                     type: listItem[i].type,
                     price: listItem[i].price,
-                    img: listItem[i].img
+                    image: listItem[i].image
                 }
                 result.push(itemSearch)
 
@@ -105,6 +105,7 @@ function searchItem() {
                                     <th>Loại</th>
                                     <th>Giá</th>
                                     <th>Hình ảnh</th>
+                                    <th>Chỉnh sửa</th>
                                 </tr>`;
                 for (let i = 0; i < result.length; i++) {
                     table += `<tr>
@@ -112,7 +113,11 @@ function searchItem() {
                                     <td>${result[i].name}</td>
                                     <td>${result[i].type}</td>
                                     <td>${result[i].price}</td>
-                                    <td><img src="${result[i].img}"></td>
+                                    <td><img class="img_product" src="${listItem[i].image}"></td>
+                                    <td>
+                                        <button onclick="editItem(${listItem[i].id})"><i class="fa fa-pencil"></i></button>
+                                        <button onclick="deleteItem(${listItem[i].id})"><i class="fa fa-trash-can"></i></button>
+                                    </td>
                                 </tr>`
                     document.getElementById("tableSearch").innerHTML = table
                     console.log(result)
