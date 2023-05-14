@@ -50,7 +50,7 @@ function showProduct() {
         <td>${listItem[i].name}</td>
         <td>${listItem[i].type}</td>
         <td>${listItem[i].price}</td>            
-        <td><img src="${listItem[i].img}"></td>
+        <td><img class="img_product" src="${listItem[i].image}"></td>
         <td>
             <button onclick="editItem(${listItem[i].id})"><i class="fa fa-pencil"></i></button>
             <button onclick="deleteItem(${listItem[i].id})"><i class="fa fa-trash-can"></i></button>
