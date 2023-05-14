@@ -178,15 +178,22 @@ saveBtn.addEventListener("click", function () {
   user.phone = phone;
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // console.log(emailRegex.test(email));
   if (email !== "" && !emailRegex.test(email)) {
-    emailError.style.display = "block";
-  } else {
+    alert("Email không hợp lệ!!!");
+    // emailError.style.display = "block";
+  }
+  else if(email == ""){
+    alert("Email không hợp lệ!!!");
+  }
+  else {
     emailError.style.display = "none";
   }
 
   const phoneRegex = /^[0-9]{10}$/;
   if (phone !== "" && !phoneRegex.test(phone)) {
-    phoneError.style.display = "block";
+    alert("Số điện thoại không hợp lệ!!!");
+    // phoneError.style.display = "block";
   } else {
     phoneError.style.display = "none";
   }
