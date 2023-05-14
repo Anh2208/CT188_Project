@@ -6,7 +6,7 @@ let carts = [
     total: "10.900.000 VND",
     payment: true,
     date: "22-8-2001",
-    status: "Đã thanh toán",
+    status: "Đã giao",
   },
   {
     id: 2,

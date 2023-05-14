@@ -35,6 +35,7 @@ let users = [
     email: "anhvh1412@gmail.com",
     phone: "116",
     username: "Duong",
+    password: "1",
     role: "admin",
     sex: "female",
   },
@@ -323,7 +324,13 @@ function login() {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
     if (username === user.username && password === user.password) {
-      window.location.href = "userDashboard.html";
+      if(user.role === "admin"){
+        window.location.href = "userDashboard.html";
+      }
+      else{
+        alert("Bạn không phải là Admin");
+        location.reload();
+      }
     }
   }
 
