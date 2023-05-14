@@ -50,7 +50,13 @@ function login() {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
     if (username === user.username && password === user.password) {
-      window.location.href = "userDashboard.html";
+      if(username.role == "admin"){
+        window.location.href = "userDashboard.html";
+      }
+      else{
+        alert("Bạn không phải là Admin");
+        location.reload();
+      }
     }
   }
 

@@ -27,7 +27,7 @@
             <a href="#blog">Blog</a>
             <a href="#about">Thông Tin</a>
         </nav>
-    
+
         <div class="icons">
             <div class="fas fa-bars" id="menu-btn"></div>
             <a class="dropdown-toggle dropdown-toggle-no-caret" href="#" role="button" id="dropdownMenuLink"
@@ -45,7 +45,7 @@
                 <li><a class="dropdown-item" id="logout" href="./Login.html">Đăng xuất</a></li>
             </ul>
         </div>
-    
+
     </header>
 
 
@@ -81,7 +81,7 @@
         </div>
         <div class="main">
             <label><i class="fas fa-location-dot"></i><b> Địa chỉ nhận hàng</b></label>
-            <form action="../html/Header.html" class="address form-spacing">
+            <form action="../html/User.html" class="address form-spacing">
                 <div class="row">
                     <div class="col-6 mt-2">
                         <label for="province-select" style="font-size: 10px;">Tỉnh/Thành phố:</label>
@@ -96,7 +96,7 @@
                         <select class="form-select" id="ward-select"></select>
                     </div>
                 </div>
-                <button class="update-btn btn btn-success" type="submit">Hoàn Tất</button>
+                <button class="update-btn btn btn-success" id="Done">Hoàn Tất</button>
             </form>
         </div>
         <div class="main">
@@ -159,5 +159,12 @@
 </body>
 <script src="../js/user.js"></script>
 <script src="../js/header.js"></script>
+<script>
+    const submit = document.querySelector("#Done");
+    submit.addEventListener("click", function () {
+        alert("Cập nhật địa chỉ thành công")
+       location.reload();
+    });
+</script>
 
 </html>
