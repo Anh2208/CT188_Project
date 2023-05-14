@@ -36,6 +36,8 @@ let carts = [
     status: "Đang giao",
   },
 ];
+
+
 const tableBody = document.getElementById("cart-table-body");
 
 // hiển thị và lọc danh sách
