@@ -1,10 +1,10 @@
 let searchForm = document.querySelector(".search-form");
 
-document.querySelector("#search-btn").onclick = () => {
-  searchForm.classList.toggle("active");
-  shoppingCart.classList.remove("active");
-  navbar.classList.remove("active");
-};
+// document.querySelector("#search-btn").onclick = () => {
+//   searchForm.classList.toggle("active");
+//   // shoppingCart.classList.remove("active");
+//   navbar.classList.remove("active");
+// };
 
 // let shoppingCart = document.querySelector('.shopping-cart');
 
@@ -23,11 +23,11 @@ document.querySelector("#menu-btn").onclick = () => {
   shoppingCart.classList.remove("active");
 };
 
-window.onscroll = () => {
-  searchForm.classList.remove("active");
-  // shoppingCart.classList.remove('active');
-  navbar.classList.remove("active");
-};
+// window.onscroll = () => {
+//   searchForm.classList.remove("active");
+//   // shoppingCart.classList.remove('active');
+//   navbar.classList.remove("active");
+// };
 const loginBtn = document.querySelector("#login-btn");
 const loginItem = document.querySelector("#loginButton");
 const registerItem = document.querySelector("#register");
