@@ -141,3 +141,9 @@ li a{
     margin-top: 10px;
     border-radius: 10px;
 }
+h1{
+    color: black;
+}
+.logo_head{
+    text-decoration: none;
+}
