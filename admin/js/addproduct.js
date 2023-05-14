@@ -270,8 +270,6 @@ let products = [
         type: "Bánh",
     },
 ];
-
-// localStorage.setItem("list-item", JSON.stringify(products))
 function showProduct() {
     table = `<tr>
        <th>ID</th>
@@ -281,21 +279,20 @@ function showProduct() {
        <th>Hình ảnh</th>
        <th>Chỉnh sửa</th>
    </tr>`
-
-    //     for (let i = 0; i < products.length; ++i) {
-    //         table += `<tr>
-
-    //        <td>${products[i].id}</td>
-    //        <td>${products[i].name}</td>
-    //        <td>${products[i].type}</td>
-    //        <td>${products[i].price}</td>
-    //        <td><img width ="50px" src="${products[i].image}"></td>
-    //        <td>
-    //             <button onclick="editItem(${products[i].id})"><i class="fa fa-pencil"></i></button>
-    //             <button onclick="deleteItem(${products[i].id})"><i class="fa fa-trash-can"></i></button>
-    //         </td>
-    //    </tr>`
-    //     }
+    for (let i = 0; i < products.length; ++i) {
+        table += `<tr>
+        
+       <td>${products[i].id}</td>
+       <td>${products[i].name}</td>
+       <td>${products[i].type}</td>
+       <td>${products[i].price}</td>
+       <td><img width ="50px" src="${products[i].image}"></td>
+       <td>
+            <button onclick="editItem(${products[i].id})"><i class="fa fa-pencil"></i></button>
+            <button onclick="deleteItem(${products[i].id})"><i class="fa fa-trash-can"></i></button>
+        </td>
+   </tr>`
+    }
     var listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
     for (let i = 0; i < listItem.length; i++) {
         table += `<tr>
@@ -303,7 +300,7 @@ function showProduct() {
         <td>${listItem[i].name}</td>
         <td>${listItem[i].type}</td>
         <td>${listItem[i].price}</td>            
-        <td><img width ="50px" src="${listItem[i].image}"></td>
+        <td><img src=""></td>
         <td>
             <button onclick="editItem(${listItem[i].id})"><i class="fa fa-pencil"></i></button>
             <button onclick="deleteItem(${listItem[i].id})"><i class="fa fa-trash-can"></i></button>
@@ -321,6 +318,7 @@ function checkID(id) {
 
     for (let i = 0; i < listItem.length; i++) {
         if (listItem[i].id == id) {
+            console.log(listItem[i].id)
             return true;
         }
     }
@@ -333,16 +331,20 @@ function add() {
     var name = document.getElementById("name").value
     var type = document.getElementById("type").value
     var price = document.getElementById("price").value
+    var quantity = document.getElementById("quantity").value
     var img = document.getElementById("img").value
+
     let item = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
     item.push({
         id: id,
         name: name,
         type: type,
         price: price,
+        quantity: quantity,
         img: img
     })
     localStorage.setItem("list-item", JSON.stringify(item))
+    console.log(localStorage)
     if (!checkID(id)) {
         alert("Sản phẩm đã tồn tại! Vui lòng nhập sản phẩm khác")
     }
@@ -350,9 +352,46 @@ function add() {
 
 }
 
-function clear() {
-    location.reload()
+//hiển thị Item
+// function render() {
+//     let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
+//     let item = `<tr>
+//         <th>ID</th>
+//         <th>Tên sản phẩm</th>
+//         <th>Loại</th>
+//         <th>Giá</th>
+//         <th>Số lượng</th>
+//         <th>Mô tả</th>
+//         <th>Hình ảnh</th>
+//         <th>Chỉnh sửa</th>
+//     </tr>`
 
+// for (let i = 0; i < listItem.length; i++) {
+//     item += `<tr>
+//     <td>${listItem[i].id}</td>
+//     <td>${listItem[i].name}</td>
+//     <td>${listItem[i].type}</td>
+//     <td>${listItem[i].price}</td>
+//     <td>${listItem[i].quantity}</td>            
+//     <td>${listItem[i].script}</td>
+//     <td>${listItem[i].img}</td>
+//     <td>
+//         <button onclick="editItem(${listItem[i].id})">Sửa</button>
+//         <button onclick="deleteItem(${listItem[i].id})">Xoá</button>
+//     </td>
+// </tr>`
+// }
+
+
+//}
+
+
+function clear() {
+    document.getElementById("id").value = ""
+    document.getElementById("name").value = ""
+    document.getElementById("type").value = ""
+    document.getElementById("price").value = ""
+    document.getElementById("img").input = ""
 }
 
 //xoá Item
@@ -362,19 +401,11 @@ function deleteItem(x) {
         if (listItem[i].id == x) {
             listItem.splice(i, 1)
             localStorage.setItem("list-item", JSON.stringify(listItem))
-            showProduct()
-        }
-    }
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].id == x) {
-            products.splice(i, 1)
-            localStorage.setItem("list-item", JSON.stringify(products))
-            showProduct()
+            render()
         }
     }
 
 }
-
 //tìm kiếm Item
 function searchItem() {
     let input = document.getElementById("searchInput").value;
@@ -410,43 +441,9 @@ function searchItem() {
                                     <td>${result[i].name}</td>
                                     <td>${result[i].type}</td>
                                     <td>${result[i].price}</td>
-                                    <td><img src="${result[i].img}"></td>
+                                    <td>${result[i].quantity}</td>
+                                    <td><img src=""></td>
                                 </tr>`
-                    document.getElementById("tableSearch").innerHTML = table
-                    console.log(result)
-                }
-            }
-        }
-        //tìm cho gán cứng
-        for (let i = 0; i < products.length; i++) {
-            var str = products[i].name
-            if (str.includes(input)) {
-                document.getElementById("tableSearch").style.display = "block";
-                document.getElementById("itemList").style.display = "none";
-                var itemSearch = {
-                    id: products[i].id,
-                    name: products[i].name,
-                    type: products[i].type,
-                    price: products[i].price,
-                    image: products[i].image
-                }
-                result.push(itemSearch)
-
-                table = `<tr>
-                                <th>ID</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Loại</th>
-                                <th>Giá</th>
-                                <th>Hình ảnh</th>
-                            </tr>`;
-                for (let i = 0; i < result.length; i++) {
-                    table += `<tr>
-                                <td>${result[i].id}</td>
-                                <td>${result[i].name}</td>
-                                <td>${result[i].type}</td>
-                                <td>${result[i].price}</td>                                    
-                                <td><img src="${result[i].image}"></td>
-                            </tr>`
                     document.getElementById("tableSearch").innerHTML = table
                     console.log(result)
                 }

@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 </head>
-<header class="header">
-    <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
+<header class="header" style="margin-top: 0;">
+    <a href="./Homepage.html" class="logo"><i class="fas fa-shopping-basket"></i>TAT Shop</a>
     <nav class="navbar">
-        <a href="#home">Trang Chủ</a>
+        <a href="./Homepage.html">Trang Chủ</a>
         <a href="#products">Sản Phẩm</a>
         <a href="#blog">Blog</a>
         <a href="#about">Thông Tin</a>
@@ -26,8 +26,6 @@
 
     <div class="icons">
         <div class="fas fa-bars" id="menu-btn"></div>
-        <div class="fas fa-search" id="search-btn"></div>
-        <div class="fas fa-shopping-cart" id="cart-btn"></div>
         <a class="dropdown-toggle dropdown-toggle-no-caret" href="#" role="button" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
             <div class="fas fa-user" id="login-btn"></div>
@@ -39,51 +37,11 @@
             </li>
             <li><a class="dropdown-item" id="register" href="./register.html">Đăng ký</a></li>
             <li><a class="dropdown-item" id="infoUser" href="./User.html">Trang Cá Nhân</a></li>
-            <li><a class="dropdown-item" id="cartUser" href="./checkout.html">Giỏ Hàng</a></li>
+            <li><a class="dropdown-item" id="cartUser">Giỏ Hàng</a></li>
             <li><a class="dropdown-item" id="logout" href="./Login.html">Đăng xuất</a></li>
         </ul>
     </div>
 
-    <form action="" class="search-form">
-        <input list="search_terms" type="search" id="search-box" placeholder="Search Here" />
-        <label for="search-box" class="fas fa-search"></label>
-
-        <datalist id="search_terms">
-            <option value="Products"></option>
-            <option value="New orders"></option>
-            <option value="Apple iphone"></option>
-            <option value="Ahmed Hassan"></option>
-        </datalist>
-    </form>
-
-    <div class="shopping-cart">
-        <div class="box">
-            <i class="fas fa-trash"></i>
-            <img style="width: 100px;" src="../assets//images//cart-img-01.jpg" alt="">
-            <div class="content">
-                <h3>one</h3>
-                <span class="price">2 tỉ VND</span>
-            </div>
-        </div>
-        <div class="box">
-            <i class="fas fa-trash"></i>
-            <img style="width: 100px;" src="../assets//images//cart-img-02.jpg" alt="">
-            <div class="content">
-                <h3>two</h3>
-                <span class="price">2 tỉ VND</span>
-            </div>
-        </div>
-        <div class="box">
-            <i class="fas fa-trash"></i>
-            <img style="width: 100px;" src="../assets//images//cart-img-03.jpg" alt="">
-            <div class="content">
-                <h3>three</h3>
-                <span class="price">2 tỉ VND</span>
-            </div>
-        </div>
-        <div class="total">total: 6 tỉ</div>
-        <a href="../html/Cart.html" class="btn">checkout</a>
-    </div>
 </header>
 <script src="../js/header.js"></script>
 

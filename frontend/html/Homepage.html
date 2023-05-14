@@ -27,7 +27,6 @@
 
     <div class="icons">
         <div class="fas fa-bars" id="menu-btn"></div>
-        <div class="fas fa-search" id="search-btn"></div>
         <a class="dropdown-toggle dropdown-toggle-no-caret" href="#" role="button" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
             <div class="fas fa-user" id="login-btn"></div>
@@ -44,26 +43,23 @@
         </ul>
     </div>
 
-    <form action="" class="search-form">
-        <input list="search_terms" type="search" id="search-box" placeholder="Search Here" />
-        <label for="search-box" class="fas fa-search"></label>
-
-        <datalist id="search_terms">
-            <option value="Products"></option>
-            <option value="New orders"></option>
-            <option value="Apple iphone"></option>
-            <option value="Ahmed Hassan"></option>
-        </datalist>
-    </form>
-
 </header>
 
 <body class="">
 
     <div class="container">
-        <header>
-            <h1>TAT SHOP</h1>
-            <div class="shopping">
+        <header class="row">
+            <div class="col-4">
+                <h1>TAT SHOP</h1>
+            </div>
+            <div class="col-4">
+                <div class="search-container">
+                    <input type="text" class="search_ip" onchange="searchProduct()" placeholder="Tìm kiếm sản phẩm..." id="search-input">
+                    <button type="button" class="search_ip" onclick="searchProduct()"><i class="fas fa-search"></i></button>
+                </div>
+                
+            </div>
+            <div class="shopping col-4 mt-3">
                 <!-- <img src="image/shopping.svg"> -->
                 <i class="fas fa-cart-shopping icon"></i>
                 <span class="quantity">0</span>
