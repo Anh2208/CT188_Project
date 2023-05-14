@@ -352,40 +352,6 @@ function add() {
 
 }
 
-//hiển thị Item
-// function render() {
-//     let listItem = localStorage.getItem("list-item") ? JSON.parse(localStorage.getItem("list-item")) : []
-//     let item = `<tr>
-//         <th>ID</th>
-//         <th>Tên sản phẩm</th>
-//         <th>Loại</th>
-//         <th>Giá</th>
-//         <th>Số lượng</th>
-//         <th>Mô tả</th>
-//         <th>Hình ảnh</th>
-//         <th>Chỉnh sửa</th>
-//     </tr>`
-
-// for (let i = 0; i < listItem.length; i++) {
-//     item += `<tr>
-//     <td>${listItem[i].id}</td>
-//     <td>${listItem[i].name}</td>
-//     <td>${listItem[i].type}</td>
-//     <td>${listItem[i].price}</td>
-//     <td>${listItem[i].quantity}</td>            
-//     <td>${listItem[i].script}</td>
-//     <td>${listItem[i].img}</td>
-//     <td>
-//         <button onclick="editItem(${listItem[i].id})">Sửa</button>
-//         <button onclick="deleteItem(${listItem[i].id})">Xoá</button>
-//     </td>
-// </tr>`
-// }
-
-
-//}
-
-
 function clear() {
     document.getElementById("id").value = ""
     document.getElementById("name").value = ""
@@ -401,7 +367,7 @@ function deleteItem(x) {
         if (listItem[i].id == x) {
             listItem.splice(i, 1)
             localStorage.setItem("list-item", JSON.stringify(listItem))
-            render()
+            showProduct()
         }
     }
 
